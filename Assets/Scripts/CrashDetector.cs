@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CrashDetector : MonoBehaviour
 {
     [SerializeField] private float _loadDelay = 0.5f;
+    [SerializeField] ParticleSystem _crashEffect;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.tag == "Ground")
+        if(collision.collider.CompareTag("Ground"))
         {
-            Debug.Log("Ouch, hit my hand!");
-
-            Invoke("ReloadScene", _loadDelay);
+            _crashEffect.Play();
+            Invoke(nameof(ReloadScene), _loadDelay);
         }
     }
 

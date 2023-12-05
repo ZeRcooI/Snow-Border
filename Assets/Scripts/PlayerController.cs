@@ -1,20 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _torqueAmount = 0.7f;
+    [SerializeField] private float _boostSpeed = 30;
+    [SerializeField] private float _baseSpeed = 10;
+
     private Rigidbody2D _rigidbody2D;
+    private SurfaceEffector2D _surfaceEffector2D;
 
     void Start()
     {
          _rigidbody2D  = GetComponent<Rigidbody2D>();
+        _surfaceEffector2D = FindObjectOfType<SurfaceEffector2D>();
     }
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        RotatePlayer();
+        RespondToBoost();
+    }
+
+    private void RespondToBoost()
+    {
+        if(Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        {
+            _surfaceEffector2D.speed = _boostSpeed;
+        }
+        else
+        {
+            _surfaceEffector2D.speed = _baseSpeed;
+        }
+    }
+
+    private void RotatePlayer()
+    {
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             _rigidbody2D.AddTorque(_torqueAmount);
         }
