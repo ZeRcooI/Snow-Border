@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,21 +9,31 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private SurfaceEffector2D _surfaceEffector2D;
 
-    void Start()
+    private bool _canMove = true;
+
+    public void DisableControls()
     {
-         _rigidbody2D  = GetComponent<Rigidbody2D>();
+        _canMove = false;
+    }
+
+    private void Start()
+    {
+        _rigidbody2D = GetComponent<Rigidbody2D>();
         _surfaceEffector2D = FindObjectOfType<SurfaceEffector2D>();
     }
 
-    void Update()
+    private void Update()
     {
-        RotatePlayer();
-        RespondToBoost();
+        if (_canMove)
+        {
+            RotatePlayer();
+            RespondToBoost();
+        }
     }
 
     private void RespondToBoost()
     {
-        if(Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             _surfaceEffector2D.speed = _boostSpeed;
         }
