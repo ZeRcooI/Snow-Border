@@ -1,3 +1,12 @@
-* The preview can be viewed here: [https://youtu.be/YUQMHNxIcfc](https://youtu.be/EzB4g5yezKU)
+#  2d Platformer
 
-![image](https://github.com/ZeRcooI/Snow-Border/assets/94679102/ab737ad8-9832-4ca7-a3fb-ab8305a47d2c)
+- Освоил работу с коллайдерами, они позволяют создавать взаимодействие между объектами игры, обеспечивая правильное столкновение и поведение персонажа и других объектов.
+- Использовал наследование объектов, что помогает создавать более удобную и гибкую структуру проекта, уменьшая дублирование кода и облегчая его поддержку и расширение.
+- Применение префабов в данном проектк упрощает процесс создания и управления объектами в игре.
+- НАучился писать более сложные скрипты, позволяя реализовывать разнообразные механики и поведение объектов в игре, делая геймплей более интересным и разнообразным.
+
+Небольшой отрывок игры: https://www.youtube.com/watch?v=EzB4g5yezKU
+
+![Screenshot](https://github.com/ZeRcooI/Snow-Border/blob/main/Assets/ScreenShots/Screenshot%201.jpg)
+
+![Screenshot](https://github.com/ZeRcooI/Snow-Border/blob/main/Assets/ScreenShots/Screenshot%202.jpg)
